@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout code
+      # 1. Checkout source
       - name: Checkout source
         uses: actions/checkout@v4
 
-      # 2. Debug: xem cấu trúc repo (rất quan trọng)
+      # 2. Debug repo structure (QUAN TRỌNG)
       - name: Show repo structure
         run: ls -R
 
@@ -29,7 +29,7 @@ jobs:
         working-directory: project1-react-laravel/backend
         run: npm install
 
-      # 5. Run backend (test hoặc start)
+      # 5. Run backend (test)
       - name: Run backend
         working-directory: project1-react-laravel/backend
         run: node index.js
