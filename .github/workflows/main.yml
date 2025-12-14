@@ -7,7 +7,6 @@ on:
 jobs:
   backend-ci:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
@@ -19,6 +18,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
+
 
       - name: Install backend dependencies
         working-directory: project1-react-laravel/backend
