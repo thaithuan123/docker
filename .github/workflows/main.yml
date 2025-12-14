@@ -1,4 +1,4 @@
-name: Backend CI
+name: Docker Fullstack CI
 
 on:
   push:
@@ -7,23 +7,24 @@ on:
     branches: [ "main" ]
 
 jobs:
-  backend:
+  backend-ci:
     runs-on: ubuntu-latest
 
     defaults:
       run:
-        working-directory: backend
+        working-directory: project1-react-laravel/backend
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Use Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: Install backend dependencies
         run: npm install
 
-      - name: Run build
-        run: echo "Backend build OK"
+      - name: Run backend (test start)
+        run: node index.js
