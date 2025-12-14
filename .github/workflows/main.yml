@@ -10,21 +10,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout code
       - name: Checkout source
         uses: actions/checkout@v4
 
+      # 2. Debug repo structure (RẤT QUAN TRỌNG)
       - name: Show repo structure
         run: ls -R
 
+      # 3. Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
+      # 4. Install backend dependencies
       - name: Install backend dependencies
         working-directory: project1-react-laravel/backend
         run: npm install
 
+      # 5. Run backend (test)
       - name: Run backend
         working-directory: project1-react-laravel/backend
         run: node index.js
